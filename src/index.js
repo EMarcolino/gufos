@@ -1,12 +1,25 @@
+// arquivo de configuração de rotas 
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import {Route, BrowserRouter as Router} from 'react-router-dom'; //importando dependencias 
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+import Categoria from './pages/Categoria'; //importando a pagina categoria
+
+const Rotas = (
+    <Router>
+        <div>
+            <Route exact path="/" component = {App}/>{/*caminho de busca*/} 
+            <Route path="/categoria" component = {Categoria}/>
+            <Route path="/categorias" component = {Categoria}/> 
+        </div>
+    </Router>
+)
+//trocar a redenrização chamando a variavel declarada acima 
+ReactDOM.render(Rotas, document.getElementById('root'));
+
 serviceWorker.unregister();
